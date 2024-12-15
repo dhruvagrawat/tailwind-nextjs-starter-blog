@@ -1,8 +1,6 @@
 'use client';
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import React, { useState, useEffect } from "react";
 
@@ -22,29 +20,29 @@ export default function Home({ posts }) {
   return (
     <>
       <div className="flex flex-col justify-center">
-        <div className="flex flex-row h-[84vh]">
+        <div className="flex flex-row bg-white h-[84vh]">
           {/* Left Column */}
           <div className="flex flex-col justify-between w-full">
             {/* Top Left Content */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center pt-5 pl-5 space-x-2">
               {/* Blinking Dot */}
               <span className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
-              <h1 className="text-left text-[14px]">{viewers.toLocaleString()} LIVE READERS</h1>
+              <h1 className="text-left text-black text-[14px]">{viewers.toLocaleString()} LIVE READERS</h1>
             </div>
 
             {/* Bottom Center Content */}
             <div className="flex justify-center">
               <div className="text-[90px]">
-                <p className="text-center">DECLUTTER THE NOISE</p>
+                <p className="text-center text-black">DECLUTTER THE NOISE</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Tag Section */}
-        <div className="flex flex-col justify-center pt-10 w-full rounded-[10px] bg-white">
+        <div className="flex flex-col justify-center pt-10 w-[99%] rounded-[10px] bg-black">
           <div className="flex justify-center pb-10">
-            <h1 className="text-black">READ BY CATEGORY</h1>
+            <h1 className="text-white">READ BY CATEGORY</h1>
           </div>
           <div className="flex flex-col pr-20 pl-20 justify-center">
             <div className="flex flex-row justify-between items-center pt-3 pr-3 pl-3">
@@ -87,8 +85,8 @@ export default function Home({ posts }) {
         </div>
 
         {/* Latest Section */}
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+        <div className="space-y-2 pb-8 bg-white pt-6 md:space-y-5">
+          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900  sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Latest
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
@@ -97,12 +95,12 @@ export default function Home({ posts }) {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid bg-white grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags, image } = post;
             return (
-              <div key={slug} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div key={slug} className="bg-black rounded-lg shadow-md overflow-hidden">
                 <div className="relative">
                   <img src={image || "/default-image.jpg"} alt={title} className="w-full h-48 object-cover" />
                   <div className="absolute bottom-2 left-2 text-white font-bold bg-black bg-opacity-50 px-3 py-1 rounded">
@@ -119,7 +117,7 @@ export default function Home({ posts }) {
                   <div className="mt-3">
                     <Link
                       href={`/blog/${slug}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      className="text-primary-500 hover:text-primary-600 "
                       aria-label={`Read more: "${title}"`}
                     >
                       Read more &rarr;
@@ -134,10 +132,10 @@ export default function Home({ posts }) {
 
       {/* Pagination */}
       {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
+        <div className="flex justify-end text-base bg-white font-medium leading-6">
           <Link
             href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            className="text-primary-500 hover:text-primary-600 "
             aria-label="All posts"
           >
             All Posts &rarr;
@@ -147,7 +145,7 @@ export default function Home({ posts }) {
 
       {/* Newsletter Section */}
       {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center pt-4">
+        <div className="flex items-center  bg-white justify-center pt-4">
           <NewsletterForm />
         </div>
       )}
