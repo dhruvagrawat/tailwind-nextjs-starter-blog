@@ -38,7 +38,7 @@ const icon = fromHtmlIsomorphic(
   </svg>
   </span>
 `,
-  { fragment: true }
+  { fragment: true },
 )
 
 const computedFields: ComputedFields = {
@@ -85,7 +85,7 @@ function createSearchIndex(allBlogs) {
   ) {
     writeFileSync(
       `public/${path.basename(siteMetadata.search.kbarConfig.searchDocumentsPath)}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
+      JSON.stringify(allCoreContent(sortPosts(allBlogs))),
     )
     console.log('Local search index generated...')
   }

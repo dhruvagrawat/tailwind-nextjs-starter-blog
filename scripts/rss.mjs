@@ -6,7 +6,7 @@ import siteMetadata from '../data/siteMetadata.js'
 import fs from 'fs'
 
 const tagData = JSON.parse(
-  fs.readFileSync(new URL('../app/tag-data.json', import.meta.url), 'utf-8')
+  fs.readFileSync(new URL('../app/tag-data.json', import.meta.url), 'utf-8'),
 )
 
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
