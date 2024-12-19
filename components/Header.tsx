@@ -14,9 +14,9 @@ const Header = () => {
   return (
     <>
       {/* Announcement Section */}
-      <div className="bg-white text-black py-2 text-center">
-        <div className="text-sm font-semibold overflow-hidden whitespace-nowrap">
-          <div className="inline-block animate-marquee">
+      <div className="bg-white py-2 text-center text-black">
+        <div className="overflow-hidden whitespace-nowrap text-sm font-semibold">
+          <div className="animate-marquee inline-block">
             🎉 Enjoy 10% off on all items! Limited time offer! 🎉
           </div>
         </div>
