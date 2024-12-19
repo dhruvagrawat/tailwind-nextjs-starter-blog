@@ -3,7 +3,7 @@ import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
 import Link from './Link'
 import MobileNav from './MobileNav'
-import SearchButton from './SearchButton'
+// import SearchButton from './SearchButton' // Commented out SearchButton import
 
 const Header = () => {
   // Use a dynamic background image with inline styles
@@ -25,7 +25,7 @@ const Header = () => {
       {/* Announcement Section */}
       <div className="bg-white py-2 text-center text-black">
         <div className="overflow-hidden whitespace-nowrap text-sm font-semibold">
-          <div className=" animate-marquee flex h-[3vh] items-center justify-center">
+          <div className="animate-marquee flex h-[3vh] items-center justify-center">
             <p className="font-popins font-medium underline">
               {' '}
               Get upto 50% off on your first months rent
@@ -59,7 +59,7 @@ const Header = () => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="block font-popins font-extrabold text-white hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
+                  className="block font-popins font-extrabold text-white transition duration-300 hover:text-yellow-400" // Text color white with yellow hover
                 >
                   {link.title}
                 </Link>
@@ -67,12 +67,14 @@ const Header = () => {
           </div>
 
           {/* Add a button with an image */}
-          <button className="flex items-center rounded-full bg-white px-4 py-2 font-popins text-black shadow-custom transition duration-300 hover:bg-gray-100">
+          <button className="flex transform items-center rounded-full bg-white px-4 py-2 font-popins text-black shadow-custom transition duration-300 hover:scale-105 hover:bg-gray-200 active:scale-100">
             <img src="/static/defImages/logo.png" alt="Icon" className="mr-2 h-5 w-5" />
             <span className="text-sm">Livebuy Home</span>
           </button>
 
-          <SearchButton />
+          {/* Commented out SearchButton section */}
+          {/* <SearchButton /> */}
+
           <MobileNav />
         </div>
       </header>
