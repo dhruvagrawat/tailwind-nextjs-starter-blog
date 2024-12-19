@@ -26,7 +26,7 @@ export default function Home({ posts }) {
             <div className="flex items-center space-x-2 pl-5 pt-5">
               {/* Blinking Dot */}
               <span className="h-3 w-3 animate-pulse rounded-full bg-red-500"></span>
-              <h1 className="text-left text-[14px] text-black">
+              <h1 className="font-popins font-thin text-left text-[14px] text-black">
                 {viewers.toLocaleString()} LIVE READERS
               </h1>
             </div>
@@ -34,7 +34,7 @@ export default function Home({ posts }) {
             {/* Bottom Center Content */}
             <div className="flex justify-center">
               <div className="text-[90px]">
-                <p className="text-center text-black">DECLUTTER THE NOISE</p>
+                <p className="font-palatino text-center text-black">DECLUTTER THE NOISE</p>
               </div>
             </div>
           </div>
