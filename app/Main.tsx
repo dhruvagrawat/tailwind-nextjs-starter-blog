@@ -34,7 +34,7 @@ export default function Home({ posts }) {
             {/* Bottom Center Content */}
             <div className="flex justify-center">
               <div className="text-[90px]">
-                <p className="text-center font-palatino text-black">DECLUTTER THE NOISE</p>
+                <p className="text-center font-bold font-palatino text-black">DECLUTTER THE NOISE</p>
               </div>
             </div>
           </div>

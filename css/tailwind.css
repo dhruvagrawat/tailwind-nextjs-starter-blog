@@ -4,9 +4,17 @@
 
 @font-face {
   font-family: 'Palatino Linotype';
-  src: url('/fonts/palatin.ttf') format('truetype'); /* adjust path and file format */
+  src: url('/fonts/palatin.ttf') format('truetype');
+  /* adjust path and file format */
   font-weight: normal;
   font-style: normal;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 0.5px black;
+  /* Adds a 2px black stroke around the text */
+  color: transparent;
+  /* Makes the text itself transparent */
 }
 
 .task-list-item::before {
@@ -34,8 +42,10 @@
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
