@@ -19,7 +19,7 @@ export default function Home({ posts }) {
   return (
     <>
       <div className="flex flex-col justify-center">
-        <div className="flex h-[84vh] flex-row bg-white">
+        <div className="flex h-[92vh] flex-row bg-white">
           {/* Left Column */}
           <div className="flex w-full flex-col justify-between">
             {/* Top Left Content */}
