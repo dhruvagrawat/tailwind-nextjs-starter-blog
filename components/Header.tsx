@@ -14,7 +14,7 @@ const Header = () => {
   }
 
   let headerClass =
-    'flex items-center bg-red-500 border-b-5 border-black lg:pr-10 lg:pl-10 w-full justify-between py-7'
+    'flex items-center bg-red-500 border-b-[3px] border-black lg:pr-10 lg:pl-10 w-full justify-between py-7'
 
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
