@@ -4,7 +4,7 @@ import { slug } from 'github-slugger'
 import { escape } from 'pliny/utils/htmlEscaper.js'
 import siteMetadata from '../data/siteMetadata.js'
 import fs from 'fs'
-/* eslint-disable no-undef */
+
 const tagData = JSON.parse(
   fs.readFileSync(new URL('../app/tag-data.json', import.meta.url), 'utf-8')
 )

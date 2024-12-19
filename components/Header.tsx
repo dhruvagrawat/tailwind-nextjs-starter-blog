@@ -13,7 +13,8 @@ const Header = () => {
     backgroundPosition: 'center',
   }
 
-  let headerClass = 'flex items-center bg-red-500 lg:pr-10 lg:pl-10 w-full justify-between py-7'
+  let headerClass =
+    'flex items-center bg-red-500 border-b-5 border-black lg:pr-10 lg:pl-10 w-full justify-between py-7'
 
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
@@ -63,8 +64,8 @@ const Header = () => {
           </div>
 
           {/* Add a button with an image */}
-          <button className="flex items-center bg-white text-black font-popins rounded-full px-4 py-2 shadow-custom hover:bg-gray-100 transition duration-300">
-            <img src="/static/defImages/logo.png" alt="Icon" className="w-5 h-5 mr-2" />
+          <button className="flex items-center rounded-full bg-white px-4 py-2 font-popins text-black shadow-custom transition duration-300 hover:bg-gray-100">
+            <img src="/static/defImages/logo.png" alt="Icon" className="mr-2 h-5 w-5" />
             <span className="text-sm">Livebuy Home</span>
           </button>
 

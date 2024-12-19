@@ -7,4 +7,7 @@ module.exports = {
   trailingComma: 'es5',
   bracketSpacing: true,
   plugins: ['prettier-plugin-tailwindcss'],
+  "singleQuote": true,
+  "trailingComma": "all",
+  "tabWidth": 2
 }

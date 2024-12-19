@@ -16,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        'custom': '4px 4px 10px rgba(0, 0, 0, 0.90)', // Right and bottom shadow
+        custom: '4px 4px 10px rgba(0, 0, 0, 0.90)', // Right and bottom shadow
       },
       lineHeight: {
         11: '2.75rem',
@@ -28,8 +28,6 @@ module.exports = {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
         popins: ['"Popins"', 'sans-serif'],
         palatino: ['"Palatino Linotype"', 'Georgia', 'serif'],
-        
-        
       },
       colors: {
         primary: colors.pink,
