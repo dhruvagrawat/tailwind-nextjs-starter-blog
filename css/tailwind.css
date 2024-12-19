@@ -17,6 +17,10 @@
   /* Makes the text itself transparent */
 }
 
+.body {
+  padding-left: 0px;
+}
+
 .task-list-item::before {
   @apply hidden;
 }
