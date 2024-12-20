@@ -1,3 +1,5 @@
+'use client'
+import { useState, useEffect } from 'react'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
@@ -7,6 +9,40 @@ import MobileNav from './MobileNav'
 import Image from 'next/image' // Import the Image component from next/image
 
 const Header = () => {
+  // State for custom cursor
+  const [isCustomCursor, setIsCustomCursor] = useState(false)
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
+
+  // Track mouse movement for cursor position
+  const handleMouseMove = (e) => {
+    if (isCustomCursor) {
+      setCursorPosition({
+        x: e.clientX,
+        y: e.clientY,
+      })
+    }
+  }
+
+  // Handle mouse enter and leave events for custom cursor
+  const handleMouseEnter = () => {
+    setIsCustomCursor(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsCustomCursor(false)
+  }
+
+  useEffect(() => {
+    if (isCustomCursor) {
+      document.addEventListener('mousemove', handleMouseMove)
+    } else {
+      document.removeEventListener('mousemove', handleMouseMove)
+    }
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [isCustomCursor])
+
   // Use a dynamic background image with next/image for optimization
   const headerStyle = {
     backgroundImage: 'url(/static/defImages/Grain.png)', // Regular URL for background image
@@ -36,7 +72,23 @@ const Header = () => {
       </div>
 
       {/* Header Section */}
-      <header className={headerClass} style={headerStyle}>
+      <header
+        className={headerClass}
+        style={headerStyle}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Custom Cursor */}
+        {isCustomCursor && (
+          <div
+            className="custom-cursor"
+            style={{
+              left: `${cursorPosition.x}px`,
+              top: `${cursorPosition.y}px`,
+            }}
+          />
+        )}
+
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="flex items-center justify-between px-4 sm:px-6 md:px-8">
             <div className="ml-3 mr-3">

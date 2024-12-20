@@ -16,6 +16,34 @@
   color: transparent;
   /* Makes the text itself transparent */
 }
+/* Default cursor will be hidden in the cursor-section */
+body {
+  cursor: default;
+}
+
+/* Cursor section should hide the default cursor */
+.cursor-section {
+  position: relative;
+  cursor: none; /* Hide default cursor inside this section */
+}
+
+header:hover {
+  cursor: none;
+}
+
+/* Custom cursor styling */
+.custom-cursor {
+  position: absolute;
+  pointer-events: none; /* Prevent cursor from interfering with other elements */
+  width: 40px; /* Adjust size of cursor */
+  height: 40px; /* Adjust size of cursor */
+  background-image: url('/static/defImages/custom-cursor.svg'); /* Custom SVG cursor */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out; /* Smooth cursor movement */
+}
 
 .body {
   padding-left: 0px;
