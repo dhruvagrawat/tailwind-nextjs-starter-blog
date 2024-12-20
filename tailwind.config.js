@@ -15,29 +15,46 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      // Add custom box shadows
       boxShadow: {
         custom: '4px 4px 10px rgba(0, 0, 0, 0.90)', // Right and bottom shadow
       },
+      // Extend line heights for typography
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
         13: '3.25rem',
         14: '3.5rem',
       },
+      // Add custom font families
       fontFamily: {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
         popins: ['"Popins"', 'sans-serif'],
         palatino: ['"Palatino Linotype"', 'Georgia', 'serif'],
       },
+      // Add custom colors
       colors: {
         primary: colors.pink,
         gray: colors.gray,
+        customorange: '#FFB400',
       },
+      // Add z-index levels
       zIndex: {
         60: '60',
         70: '70',
         80: '80',
       },
+      // Add custom keyframes and animations
+      keyframes: {
+        pulseCustom: {
+          '0%, 100%': { backgroundColor: 'transparent' },
+          '50%': { backgroundColor: '#FFB400' }, // Custom orange
+        },
+      },
+      animation: {
+        'pulse-custom': 'pulseCustom 1.5s infinite',
+      },
+      // Extend typography plugin
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {

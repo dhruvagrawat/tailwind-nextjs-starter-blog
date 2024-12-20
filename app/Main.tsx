@@ -19,25 +19,22 @@ export default function Home({ posts }) {
   return (
     <>
       <div className="flex flex-col justify-center">
-        <div className="flex h-[92vh] flex-row bg-white">
+        <div className="flex h-[100vh] flex-row bg-white">
           {/* Left Column */}
           <div className="flex w-full flex-col justify-between">
             {/* Top Left Content */}
             <div className="flex items-center space-x-2 pl-5 pt-5">
               {/* Blinking Dot */}
-              <span className="h-3 w-3 animate-pulse rounded-full bg-red-500"></span>
+              <span className="ml-10 h-3 w-3 animate-pulse-custom rounded-full bg-transparent"></span>
               <h1 className="text-left font-popins text-[14px] font-thin text-black">
-                {viewers.toLocaleString()} LIVE READERS
+                <b className="font-bold">{viewers.toLocaleString()}</b> LIVE READERS
               </h1>
             </div>
-
             {/* Bottom Center Content */}
-            <div className="flex justify-center">
-              <div className="text-[90px]">
-                <p className="text-center font-palatino font-bold text-black">
-                  DECLUTTER THE NOISE
-                </p>
-              </div>
+            <div className="flex h-full w-full items-end justify-center">
+              <p className="whitespace-nowrap text-center font-palatino text-[8vw] font-bold text-black">
+                DECLUTTER THE NOISE
+              </p>
             </div>
           </div>
         </div>

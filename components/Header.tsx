@@ -4,11 +4,12 @@ import Logo from '@/data/logo.svg'
 import Link from './Link'
 import MobileNav from './MobileNav'
 // import SearchButton from './SearchButton' // Commented out SearchButton import
+import Image from 'next/image' // Import the Image component from next/image
 
 const Header = () => {
-  // Use a dynamic background image with inline styles
+  // Use a dynamic background image with next/image for optimization
   const headerStyle = {
-    backgroundImage: 'url(/static/defImages/Grain.png)',
+    backgroundImage: 'url(/static/defImages/Grain.png)', // Regular URL for background image
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   }
@@ -37,8 +38,9 @@ const Header = () => {
       {/* Header Section */}
       <header className={headerClass} style={headerStyle}>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="flex items-center justify-between">
-            <div className="mr-3">
+          <div className="flex items-center justify-between px-4 sm:px-6 md:px-8">
+            <div className="ml-3 mr-3">
+              {/* No need for next/image for SVG logos */}
               <Logo />
             </div>
             {typeof siteMetadata.headerTitle === 'string' ? (
@@ -51,7 +53,7 @@ const Header = () => {
           </div>
         </Link>
 
-        <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
+        <div className="flex items-center space-x-4 px-4 leading-5 sm:space-x-6 sm:px-6 md:px-8">
           <div className="no-scrollbar hidden max-w-40 items-center space-x-4 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
             {headerNavLinks
               .filter((link) => link.href !== '/')
@@ -66,9 +68,15 @@ const Header = () => {
               ))}
           </div>
 
-          {/* Add a button with an image */}
+          {/* Add a button with an image using next/image for optimization */}
           <button className="flex transform items-center rounded-full bg-white px-4 py-2 font-popins text-black shadow-custom transition duration-300 hover:scale-105 hover:bg-gray-200 active:scale-100">
-            <img src="/static/defImages/logo.png" alt="Icon" className="mr-2 h-5 w-5" />
+            <Image
+              src="/static/defImages/logo.png"
+              alt="Icon"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
             <span className="text-sm">Livebuy Home</span>
           </button>
 
