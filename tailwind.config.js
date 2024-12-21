@@ -37,12 +37,14 @@ module.exports = {
         primary: colors.pink,
         gray: colors.gray,
         customorange: '#FFB400',
+        cgray: '#D6D6D6',
       },
       // Add z-index levels
       zIndex: {
         60: '60',
         70: '70',
         80: '80',
+        10: '10', // Ensures the dots are on top of the text
       },
       // Add custom keyframes and animations
       keyframes: {
@@ -50,9 +52,18 @@ module.exports = {
           '0%, 100%': { backgroundColor: 'transparent' },
           '50%': { backgroundColor: '#FFB400' }, // Custom orange
         },
+        'marquee-animation': {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          '100%': {
+            transform: 'translateX(-100%)',
+          },
+        },
       },
       animation: {
         'pulse-custom': 'pulseCustom 1.5s infinite',
+        marquee: 'marquee-animation 30s linear infinite', // Slower for smoothness
       },
       // Extend typography plugin
       typography: ({ theme }) => ({

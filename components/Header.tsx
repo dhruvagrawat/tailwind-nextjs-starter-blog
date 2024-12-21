@@ -62,7 +62,7 @@ const Header = () => {
       {/* Announcement Section */}
       <div className="bg-white py-2 text-center text-black">
         <div className="overflow-hidden whitespace-nowrap text-sm font-semibold">
-          <div className="animate-marquee flex h-[3vh] items-center justify-center">
+          <div className="flex h-[3vh] animate-marquee items-center justify-center">
             <p className="font-popins font-medium underline">
               {' '}
               Get upto 50% off on your first months rent

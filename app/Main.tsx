@@ -1,171 +1,51 @@
-'use client'
-import { useState, useEffect } from 'react'
-import Link from '@/components/Link'
+// pages/main.tsx
+import { CustomCursor } from '@/components/CustomCursor'
+import Link from 'next/link'
+import { TagSection } from '@/components/TagSection'
+import { BlogGrid } from '@/components/BlogGrid'
 import siteMetadata from '@/data/siteMetadata'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
-
-const MAX_DISPLAY = 4
+// import NewsletterForm from 'pliny/ui/NewsletterForm';
+import MiddleMarquee from '@/components/MiddleMarquee'
+import MixtapeComponent from '@/components/Mixtape'
+import AchievementSection from '@/components/Tv'
+const MAX_DISPLAY = 3
 
 export default function Home({ posts }) {
-  const [viewers, setViewers] = useState(5000)
-  const [isCustomCursor, setIsCustomCursor] = useState(false)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-
-  // Track viewers dynamically
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setViewers((prev) => prev + Math.floor(Math.random() * 20 - 10)) // +/- 10 viewers
-    }, 1000)
-    return () => clearInterval(interval) // Cleanup interval on component unmount
-  }, [])
-
-  // Handle mouse enter to enable custom cursor
-  const handleMouseEnter = () => {
-    setIsCustomCursor(true)
-  }
-
-  // Handle mouse leave to disable custom cursor
-  const handleMouseLeave = () => {
-    setIsCustomCursor(false)
-  }
-
-  // Handle mouse movement to update cursor position
-  const handleMouseMove = (e) => {
-    if (isCustomCursor) {
-      setCursorPosition({
-        x: e.clientX,
-        y: e.clientY,
-      })
-    }
-  }
-
-  useEffect(() => {
-    if (isCustomCursor) {
-      document.addEventListener('mousemove', handleMouseMove)
-    } else {
-      document.removeEventListener('mousemove', handleMouseMove)
-    }
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [isCustomCursor])
-
   return (
     <>
-      <div
-        className="cursor-section flex h-[100vh] flex-row bg-white"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {/* Custom cursor visible only in this section */}
-        {isCustomCursor && (
-          <div
-            className="custom-cursor"
-            style={{
-              left: `${cursorPosition.x}px`,
-              top: `${cursorPosition.y}px`,
-            }}
-          />
-        )}
-
-        {/* Left Column */}
-        <div className="flex w-full flex-col  justify-between">
-          {/* Top Left Content */}
-          <div className="flex items-center space-x-2 pl-5 pt-5">
-            {/* Blinking Dot */}
-            <span className="ml-10 h-3 w-3 animate-pulse-custom rounded-full bg-transparent"></span>
-            <h1 className="text-left font-popins text-[14px] font-thin text-black">
-              <b className="font-bold">{viewers.toLocaleString()}</b> LIVE READERS
-            </h1>
-          </div>
-          {/* Bottom Center Content */}
-          <div className="flex h-full  w-full items-end justify-center">
-            <p className="whitespace-nowrap text-center font-palatino text-[8vw] font-bold text-black">
-              DECLUTTER THE NOISE
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Tag Section */}
-      <div className="flex w-[99%] flex-col justify-center rounded-[10px] bg-black pt-10">
-        <div className="flex justify-center pb-10">
-          <h1 className="text-white">READ BY CATEGORY</h1>
-        </div>
-        <div className="flex flex-col justify-center pl-20 pr-20">
-          <div className="flex flex-row items-center justify-between pl-3 pr-3 pt-3">
-            <div className="min-h-[150px] w-[23%] rounded-[10px] bg-slate-500 pl-3 pr-3 pt-3">
-              <h3>Delhi University</h3>
-              <p>sub text</p>
-            </div>
-            <div className="min-h-[150px] w-[23%] rounded-[10px] bg-slate-500 pl-4 pr-4 pt-4">
-              <h3>Delhi University</h3>
-              <p>sub text</p>
-            </div>
-            <div className="min-h-[150px] w-[23%] rounded-[10px] bg-slate-500 pl-4 pr-4 pt-4">
-              <h3>Delhi University</h3>
-              <p>sub text</p>
-            </div>
-            <div className="min-h-[150px] w-[23%] rounded-[10px] bg-slate-500 pl-4 pr-4 pt-4">
-              <h3>Delhi University</h3>
-              <p>sub text</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Latest Section */}
+      <CustomCursor />
+      <TagSection />
+      <MiddleMarquee />
+      <MixtapeComponent />
+      <AchievementSection
+        gifUrl="/static/defImages/1.gif"
+        title="livebuy becomes North Delhi’s largest player in the rental market"
+        description="With over 1,000 direct flats out of 4,000 are listed on livebuy, the platorm has grown to become to largest player in the rental market in the North campus’ history. We now command 1/3rd of the entire market and this number will soon grow. We aim to make the renting process easirer, smoother, and more transparent."
+      />
       <div className="space-y-2 bg-white pb-8 pt-6 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+        <h1 className="text-sm font-extrabold  tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           Latest
         </h1>
-        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-          {siteMetadata.description}
-        </p>
       </div>
-
-      {/* Blog Grid */}
-      <div className="grid grid-cols-1 gap-8 bg-white sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {!posts.length && 'No posts found.'}
-        {posts.slice(0, MAX_DISPLAY).map((post) => {
-          const { slug, date, title, summary, tags, image } = post
-          return (
-            <div key={slug} className="overflow-hidden rounded-lg bg-black shadow-md">
-              <div className="relative">
-                <img
-                  src={image || '/default-image.jpg'}
-                  alt={title}
-                  className="h-48 w-full object-cover"
-                />
-                <div className="absolute bottom-2 left-2 rounded bg-black bg-opacity-50 px-3 py-1 font-bold text-white">
-                  <h3>{title}</h3>
-                </div>
-              </div>
-              <div className="p-5">
-                <h2 className="text-xl font-semibold text-gray-800">
-                  <Link href={`/blog/${slug}`} className="hover:underline">
-                    {title}
-                  </Link>
-                </h2>
-                <div className="mt-2 text-gray-600">
-                  <p>{summary}</p>
-                </div>
-                <div className="mt-3">
-                  <Link
-                    href={`/blog/${slug}`}
-                    className="text-primary-500 hover:text-primary-600 "
-                    aria-label={`Read more: "${title}"`}
-                  >
-                    Read more &rarr;
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )
-        })}
+      <BlogGrid posts={posts} MAX_DISPLAY={MAX_DISPLAY} />
+      <div className="space-y-2 bg-white pb-8 pt-6 md:space-y-5">
+        <h1 className="text-sm font-extrabold  tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          new
+        </h1>
       </div>
-
-      {/* Pagination */}
+      <BlogGrid posts={posts} MAX_DISPLAY={MAX_DISPLAY} />
+      <div className="space-y-2 bg-white pb-8 pt-6 md:space-y-5">
+        <h1 className="text-sm font-extrabold  tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          testt
+        </h1>
+      </div>
+      <BlogGrid posts={posts} MAX_DISPLAY={MAX_DISPLAY} />
+      <div className="space-y-2 bg-white pb-8 pt-6 md:space-y-5">
+        <h1 className="text-sm font-extrabold  tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          La
+        </h1>
+      </div>
+      <BlogGrid posts={posts} MAX_DISPLAY={MAX_DISPLAY} />
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end bg-white text-base font-medium leading-6">
           <Link
@@ -177,11 +57,9 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-
-      {/* Newsletter Section */}
       {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center bg-white pt-4">
-          <NewsletterForm />
+          {/* <NewsletterForm /> */}
         </div>
       )}
     </>

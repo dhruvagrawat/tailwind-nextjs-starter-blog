@@ -43,12 +43,12 @@ export function BlogGrid({ posts, MAX_DISPLAY }) {
                 <span>{new Date(date).toLocaleDateString()}</span>
               </div>
               <div className="mt-2 flex items-center gap-2 text-sm text-gray-700">
-                <img
-                  src={(author && author.image) || '/static/defImages/1.webp'}
-                  alt={(author && author.name) || 'Unknown Author'}
-                  className="h-6 w-6 rounded-full"
-                />
-                <span>{(author && author.name) || 'Unknown Author'}</span>
+                {/* <img
+                                    src={author.image || '/default-avatar.jpg'}
+                                    alt={author.name}
+                                    className="h-6 w-6 rounded-full"
+                                /> */}
+                {/* <span>{author.name}</span> */}
               </div>
               <div className="mt-3 flex items-center justify-between">
                 <button className="flex items-center gap-1 text-gray-600 hover:text-black">
