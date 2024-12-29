@@ -8,12 +8,14 @@ import siteMetadata from '@/data/siteMetadata'
 import MiddleMarquee from '@/components/MiddleMarquee'
 import MixtapeComponent from '@/components/Mixtape'
 import AchievementSection from '@/components/Tv'
+
 const MAX_DISPLAY = 3
 
 export default function Home({ posts }) {
   return (
     <>
       <CustomCursor />
+
       <TagSection />
       <MiddleMarquee />
       <MixtapeComponent />
