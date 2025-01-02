@@ -39,6 +39,10 @@ export function CustomCursor() {
         className="cursor-section flex h-[84vh] flex-row bg-white"
         onMouseEnter={() => setIsCustomCursor(true)}
         onMouseLeave={() => setIsCustomCursor(false)}
+        style={{
+          marginTop: '30px', // Create space between the header and the section
+          zIndex: -10, // Ensure it's below the header (if necessary)
+        }}
       >
         {isCustomCursor && (
           <div
@@ -50,12 +54,14 @@ export function CustomCursor() {
           />
         )}
         <div className="flex w-full flex-col justify-between">
+          {/* Live Readers Section */}
           <div className="flex items-center space-x-2 pl-5 pt-5">
             <span className="ml-10 h-3 w-3 animate-pulse-custom rounded-full bg-transparent"></span>
             <h1 className="text-left font-popins text-[14px] font-thin text-black">
               <b className="font-bold">{liveReaders}</b> <b>LIVE READERS</b>
             </h1>
           </div>
+          {/* Main Section Content */}
           <div className="flex h-full w-full items-end justify-center">
             <p className="whitespace-nowrap text-center font-palatino text-[8vw] font-bold text-black">
               DECLUTTER THE NOISE

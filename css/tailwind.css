@@ -10,6 +10,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Poppins Medium';
+  src: url('/fonts/Poppins Medium 500.ttf') format('truetype'); /* Preferred format */
+       /* url('/fonts/Poppins-Medium.woff') format('woff'); */
+  font-weight: 500; /* Specifies the medium weight */
+  font-style: normal; /* Regular style, not italic */
+}
+
 .text-stroke {
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.611);
   /* Adds a 2px black stroke around the text */
@@ -106,4 +114,34 @@ input:-webkit-autofill:focus {
 .linkicon {
   display: inline-block;
   vertical-align: middle;
+}
+
+.button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-content {
+  transition: transform 200ms cubic-bezier(0.2, 0.6, 0.4, 1), 
+              box-shadow 200ms cubic-bezier(0.2, 0.6, 0.4, 1);
+  will-change: transform, box-shadow;
+}
+
+.animated-button:hover .button-content {
+  transform: translateY(3px); /* Moves the main button content down */
+  box-shadow: 2px 2px 0 #000; /* Reduces shadow */
+}
+
+.animated-button:active .button-content {
+  transform: translateY(6px); /* Further press on click */
+  box-shadow: 0 0 0 #000; /* Removes shadow entirely for a pressed effect */
 }

@@ -31,6 +31,7 @@ module.exports = {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
         popins: ['"Popins"', 'sans-serif'],
         palatino: ['"Palatino Linotype"', 'Georgia', 'serif'],
+        poppins: ['Poppins Medium', 'sans-serif'] 
       },
       // Add custom colors
       colors: {
