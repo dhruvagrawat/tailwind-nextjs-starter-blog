@@ -64,8 +64,8 @@ const Header = () => {
       `}</style>
 
       {/* Announcement Section */}
-      <div className="bg-gray-100 py-2 text-center text-black">
-        <div className="overflow-hidden whitespace-nowrap text-sm font-semibold">
+      <div className="bg-gray-100 py-[15px] text-center text-black">
+        <div className="overflow-hidden whitespace-nowrap text-[16px] font-semibold">
           <div className="flex h-[3vh] items-center justify-center">
             <p className="font-poppins font-[500] underline">
               {' '}
@@ -82,9 +82,11 @@ const Header = () => {
           ...headerStyle,
           height: '100px', // Explicitly set the height
           maxWidth: '100%', // Ensure responsiveness on smaller screens
-          borderTop: '3px solid black', // Top border
+          borderTop: '1.8px solid black', // Top border
           borderBottom: '3px solid black', // Bottom border
-          zIndex: 100 // Ensure it's above other elements
+          zIndex: 100, // Ensure it's above other elements
+          position: 'sticky', // Makes the header sticky
+          top: 0, // Sticks the header to the top
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -117,18 +119,18 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center space-x-4 px-4 leading-5 sm:space-x-6 sm:px-6 md:px-8">
-          <div className="no-scrollbar hidden max-w-40 items-center space-x-8 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
+          <div className="no-scrollbar hidden max-w-40 items-center pr-8 space-x-8 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
             {headerNavLinks
               .filter((link) => link.href !== '/')
               .map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="border-black font-popins text-[13px] font-black leading-[19.5px] text-white transition duration-300"
+                  className="font-poppins text-[16px] font-black leading-[19.5px] text-white transition duration-300"
                   style={{
                     textShadow:
                       '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
-                    padding: '8px 12px', // Add padding for better appearance
+                    padding: '8px 15px', // Add padding for better appearance
                     borderRadius: '20px', // Rounded corners for the hover effect
                   }}
                   onMouseEnter={(e) => {

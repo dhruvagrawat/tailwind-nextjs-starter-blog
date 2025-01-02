@@ -53,11 +53,11 @@ export function CustomCursor() {
             }}
           />
         )}
-        <div className="flex w-full flex-col justify-between">
+        <div className="flex w-full flex-col justify-between mt-8">
           {/* Live Readers Section */}
           <div className="flex items-center space-x-2 pl-5 pt-5">
             <span className="ml-10 h-3 w-3 animate-pulse-custom rounded-full bg-transparent"></span>
-            <h1 className="text-left font-popins text-[14px] font-thin text-black">
+            <h1 className="font-poppins text-left text-[20px] font-thin text-black">
               <b className="font-bold">{liveReaders}</b> <b>LIVE READERS</b>
             </h1>
           </div>
