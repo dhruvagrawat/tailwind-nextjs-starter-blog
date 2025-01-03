@@ -7,12 +7,12 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 // import SearchButton from './SearchButton' // Commented out SearchButton import
 import Image from 'next/image' // Import the Image component from next/image
+import BouncyButton from './BouncyButton'
 
 const Header = () => {
   // State for custom cursor
   const [isCustomCursor, setIsCustomCursor] = useState(false)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-
   // Track mouse movement for cursor position
   const handleMouseMove = (e) => {
     if (isCustomCursor) {
@@ -59,13 +59,17 @@ const Header = () => {
 
   return (
     <>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+      `}</style>
+
       {/* Announcement Section */}
-      <div className="bg-white py-2 text-center text-black">
-        <div className="overflow-hidden whitespace-nowrap text-sm font-semibold">
-          <div className="flex h-[3vh] animate-marquee items-center justify-center">
-            <p className="font-popins font-medium underline">
+      <div className="bg-gray-100 py-[10px] text-center text-black">
+        <div className="overflow-hidden whitespace-nowrap text-[14px] font-semibold">
+          <div className="flex h-[3vh] items-center justify-center">
+            <p className="font-poppins font-[500] underline">
               {' '}
-              Get upto 50% off on your first months rent
+              Get upto 50% off on your first month's rent
             </p>
           </div>
         </div>
@@ -74,7 +78,16 @@ const Header = () => {
       {/* Header Section */}
       <header
         className={headerClass}
-        style={headerStyle}
+        style={{
+          ...headerStyle,
+          height: '90px', // Explicitly set the height
+          maxWidth: '100%', // Ensure responsiveness on smaller screens
+          borderTop: '1.8px solid black', // Top border
+          borderBottom: '3px solid black', // Bottom border
+          zIndex: 100, // Ensure it's above other elements
+          position: 'sticky', // Makes the header sticky
+          top: 0, // Sticks the header to the top
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -106,14 +119,32 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center space-x-4 px-4 leading-5 sm:space-x-6 sm:px-6 md:px-8">
-          <div className="no-scrollbar hidden max-w-40 items-center space-x-4 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
+          <div className="no-scrollbar hidden max-w-40 items-center pr-8 space-x-8 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
             {headerNavLinks
               .filter((link) => link.href !== '/')
               .map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="block font-popins font-extrabold text-white transition duration-300 hover:text-yellow-400" // Text color white with yellow hover
+                  className="font-poppins text-[14px] font-black leading-[19.5px] text-white transition duration-300"
+                  style={{
+                    textShadow:
+                      '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
+                    padding: '7px 14px', // Add padding for better appearance
+                    borderRadius: '20px', // Rounded corners for the hover effect
+                  }}
+                  onMouseEnter={(e) => {
+                    const target = e.target as HTMLElement
+                    target.style.backgroundColor = '#3E3E3E' // Background color on hover
+                    target.style.color = '#ffffff' // Text color on hover
+                    target.style.border = '2px solid #000' // Add border on hover
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.target as HTMLElement
+                    target.style.backgroundColor = 'transparent' // Reset background
+                    target.style.color = '#ffffff' // Reset text color
+                    target.style.border = 'none' // Reset border
+                  }}
                 >
                   {link.title}
                 </Link>
@@ -121,7 +152,14 @@ const Header = () => {
           </div>
 
           {/* Add a button with an image using next/image for optimization */}
-          <button className="flex transform items-center rounded-full bg-white px-4 py-2 font-popins text-black shadow-custom transition duration-300 hover:scale-105 hover:bg-gray-200 active:scale-100">
+          {/* <button
+            className="flex items-center justify-center rounded-full border-[1.5px] border-black bg-white shadow-md transition duration-300"
+            style={{
+              width: '144px', // Set the width
+              height: '40px', // Adjust the height to balance the padding (includes vertical space for text)
+              boxShadow: '4px 4px 0 #000', // Black shadow to replicate the style
+            }}
+          >
             <Image
               src="/static/defImages/logo.png"
               alt="Icon"
@@ -129,8 +167,11 @@ const Header = () => {
               height={20}
               className="mr-2"
             />
-            <span className="text-sm">Livebuy Home</span>
-          </button>
+            <span className="font-poppins text-[13px] font-[550] leading-[19.5px] text-black">
+              Livebuy Home
+            </span>
+          </button> */}
+          <BouncyButton />
 
           {/* Commented out SearchButton section */}
           {/* <SearchButton /> */}

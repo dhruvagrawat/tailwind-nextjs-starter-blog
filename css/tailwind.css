@@ -10,6 +10,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Poppins Medium';
+  src: url('/fonts/Poppins Medium 500.ttf') format('truetype'); /* Preferred format */
+       /* url('/fonts/Poppins-Medium.woff') format('woff'); */
+  font-weight: 500; /* Specifies the medium weight */
+  font-style: normal; /* Regular style, not italic */
+}
+
 .text-stroke {
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.611);
   /* Adds a 2px black stroke around the text */
@@ -35,8 +43,8 @@ header:hover {
 .custom-cursor {
   position: absolute;
   pointer-events: none; /* Prevent cursor from interfering with other elements */
-  width: 40px; /* Adjust size of cursor */
-  height: 40px; /* Adjust size of cursor */
+  width: 70px;
+  height: 70px; 
   background-image: url('/static/defImages/custom-cursor.svg'); /* Custom SVG cursor */
   background-size: contain;
   background-repeat: no-repeat;
@@ -106,4 +114,32 @@ input:-webkit-autofill:focus {
 .linkicon {
   display: inline-block;
   vertical-align: middle;
+}
+.button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.button-shadow {
+  position: absolute;
+  z-index: 0; /* Behind the button */
+}
+
+.button-content {
+  position: relative;
+  z-index: 1; /* Above the shadow */
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background: white;
+  padding: 0;
+  transition: transform 200ms ease; 
+}
+
+.button-wrapper:hover .button-content {
+  transform: translate(4px, 3px);
+}
+
+.button-wrapper:active .button-content {
+  transform: translate(4px, 6px); 
 }
