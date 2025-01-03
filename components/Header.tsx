@@ -64,8 +64,8 @@ const Header = () => {
       `}</style>
 
       {/* Announcement Section */}
-      <div className="bg-gray-100 py-[15px] text-center text-black">
-        <div className="overflow-hidden whitespace-nowrap text-[16px] font-semibold">
+      <div className="bg-gray-100 py-[10px] text-center text-black">
+        <div className="overflow-hidden whitespace-nowrap text-[14px] font-semibold">
           <div className="flex h-[3vh] items-center justify-center">
             <p className="font-poppins font-[500] underline">
               {' '}
@@ -80,7 +80,7 @@ const Header = () => {
         className={headerClass}
         style={{
           ...headerStyle,
-          height: '100px', // Explicitly set the height
+          height: '90px', // Explicitly set the height
           maxWidth: '100%', // Ensure responsiveness on smaller screens
           borderTop: '1.8px solid black', // Top border
           borderBottom: '3px solid black', // Bottom border
@@ -126,11 +126,11 @@ const Header = () => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="font-poppins text-[16px] font-black leading-[19.5px] text-white transition duration-300"
+                  className="font-poppins text-[14px] font-black leading-[19.5px] text-white transition duration-300"
                   style={{
                     textShadow:
                       '1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000',
-                    padding: '8px 15px', // Add padding for better appearance
+                    padding: '7px 14px', // Add padding for better appearance
                     borderRadius: '20px', // Rounded corners for the hover effect
                   }}
                   onMouseEnter={(e) => {

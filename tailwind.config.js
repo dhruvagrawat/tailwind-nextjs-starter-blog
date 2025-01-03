@@ -64,6 +64,8 @@ module.exports = {
       },
       animation: {
         'pulse-custom': 'pulseCustom 1.5s infinite',
+        'spin-slow': 'spin 4s linear infinite',
+        'spin-fast': 'spin 0.8s linear infinite',
         marquee: 'marquee-animation 30s linear infinite', // Slower for smoothness
       },
       // Extend typography plugin

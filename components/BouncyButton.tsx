@@ -8,8 +8,8 @@ const BouncyButton: React.FC = () => {
       <div
         className="button-shadow absolute inset-0 rounded-full bg-black"
         style={{
-          width: '180px',
-          height: '44px',
+          width: '170px',
+          height: '42px',
           top: '6px', // Offset to simulate shadow
           left: '6px',
         }}
@@ -20,8 +20,8 @@ const BouncyButton: React.FC = () => {
         <div
           className="flex items-center justify-center border-[2px] border-black rounded-full"
           style={{
-            width: '180px',
-            height: '44px',
+            width: '170px',
+            height: '42px',
           }}
         >
           <Image
