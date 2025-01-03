@@ -45,4 +45,4 @@ yarn-error.log*
 
 # Contentlayer
 .contentlayer
-tag-data.json
+app/tag-data.json
