@@ -6,61 +6,53 @@ export function TagSection() {
   const tagsData = [
     [
       {
-        title: 'Delhi University',
-        subtitle: 'Education Hub',
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
-        hasLabel: true,
-      },
-      {
-        title: 'Mumbai City',
-        subtitle: 'City of Dreams',
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
         hasLabel: false,
       },
       {
-        title: 'Goa Beaches',
-        subtitle: 'Tourist Paradise',
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
-        hasLabel: true,
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
+        hasLabel: false,
       },
       {
-        title: 'Kerala Backwaters',
-        subtitle: "Nature's Beauty",
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
+        hasLabel: false,
+      },
+      {
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
         hasLabel: false,
       },
     ],
     [
       {
-        title: 'Rajasthan Heritage',
-        subtitle: 'Royal Legacy',
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
-        hasLabel: true,
-      },
-      {
-        title: 'Sikkim Hills',
-        subtitle: 'Scenic Views',
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
         hasLabel: false,
       },
       {
-        title: 'Kolkata Culture',
-        subtitle: 'City of Joy',
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
-        hasLabel: true,
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
+        hasLabel: false,
       },
       {
-        title: 'Chennai Coast',
-        subtitle: 'Marina Beach',
-        image: '/static/defImages/1.webp',
-        gif: '/static/defImages/1.gif',
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
+        hasLabel: false,
+      },
+      {
+        image: '/static/defImages/Trending.png',
+        gif: '/static/defImages/Trending2.gif',
+        gifHover: '/static/defImages/Trending1.gif',
         hasLabel: false,
       },
     ],
@@ -68,9 +60,15 @@ export function TagSection() {
 
   return (
     <Parallax speed={+20}>
-      <div className="m-10 mx-auto mb-10 flex w-[100%] flex-col justify-center rounded-[10px] bg-black pt-10">
-        <div className="flex justify-center pb-6">
-          <h1 className="text-white">READ BY CATEGORY</h1>
+      <div className="mx-auto flex w-[100%] h-[676px] flex-col justify-start bg-black">
+        <div className="flex justify-center gap-5 py-[100px] pb-[25px]">
+          <div className="animate-spin-slow flex justify-center">
+            <RotatingStarIcon />
+          </div>
+
+          <div className="flex justify-center">
+            <h1 className="text-white text-[16px] font-popins">READ BY CATEGORY</h1>
+          </div>
         </div>
         {tagsData.map((row, rowIndex) => (
           <div key={rowIndex} className="mb-4 flex flex-col justify-center pl-4 pr-4">
@@ -78,18 +76,7 @@ export function TagSection() {
               {row.map((tag, colIndex) => (
                 <div
                   key={colIndex}
-                  className="relative min-h-[150px] w-[23%] overflow-hidden rounded-[11px] bg-cgray"
-                  style={{
-                    backgroundImage: `url(${tag.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundImage = `url(${tag.gif})`
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundImage = `url(${tag.image})`
-                  }}
+                  className="relative min-h-[100px] w-[20%] overflow-hidden rounded-[11px]"
                 >
                   {tag.hasLabel && (
                     <div
@@ -101,10 +88,23 @@ export function TagSection() {
                       New
                     </div>
                   )}
-                  <div className="absolute left-3 top-3 flex flex-col text-black">
-                    <h3 className="text-sm font-semibold">{tag.title}</h3>
-                    <p className="text-xs">{tag.subtitle}</p>
-                  </div>
+
+                  <img
+                    src={tag.image}
+                    alt="tag image"
+                    className="w-full h-full object-cover transition-all duration-300 ease-in-out"
+                    onMouseEnter={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = tag.gifHover;
+                    }}
+                    onMouseLeave={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = tag.gif;
+                      setTimeout(() => {
+                        target.src = tag.image;
+                      }, 200);
+                    }}
+                  />
                 </div>
               ))}
             </div>
