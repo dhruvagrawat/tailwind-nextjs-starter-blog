@@ -13,7 +13,7 @@
 @font-face {
   font-family: 'Poppins Medium';
   src: url('/fonts/Poppins Medium 500.ttf') format('truetype'); /* Preferred format */
-       /* url('/fonts/Poppins-Medium.woff') format('woff'); */
+  /* url('/fonts/Poppins-Medium.woff') format('woff'); */
   font-weight: 500; /* Specifies the medium weight */
   font-style: normal; /* Regular style, not italic */
 }
@@ -44,7 +44,7 @@ header:hover {
   position: absolute;
   pointer-events: none; /* Prevent cursor from interfering with other elements */
   width: 70px;
-  height: 70px; 
+  height: 70px;
   background-image: url('/static/defImages/custom-cursor.svg'); /* Custom SVG cursor */
   background-size: contain;
   background-repeat: no-repeat;
@@ -133,7 +133,7 @@ input:-webkit-autofill:focus {
   border: none;
   background: white;
   padding: 0;
-  transition: transform 200ms ease; 
+  transition: transform 200ms ease;
 }
 
 .button-wrapper:hover .button-content {
@@ -141,5 +141,5 @@ input:-webkit-autofill:focus {
 }
 
 .button-wrapper:active .button-content {
-  transform: translate(4px, 6px); 
+  transform: translate(4px, 6px);
 }

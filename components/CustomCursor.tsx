@@ -42,7 +42,7 @@ export function CustomCursor() {
         style={{
           marginTop: '30px', // Create space between the header and the section
           zIndex: -10, // Ensure it's below the header (if necessary)
-          marginBottom: '0px', 
+          marginBottom: '0px',
         }}
       >
         {isCustomCursor && (
@@ -54,16 +54,16 @@ export function CustomCursor() {
             }}
           />
         )}
-        <div className="flex w-full flex-col justify-between mt-8">
+        <div className="mt-8 flex w-full flex-col justify-between">
           {/* Live Readers Section */}
           <div className="flex items-center space-x-2 pl-5 pt-2">
             <span className="ml-9 h-3 w-3 animate-pulse-custom rounded-full bg-transparent"></span>
-            <h1 className="font-poppins text-left text-[16px] font-thin text-black">
+            <h1 className="text-left font-poppins text-[16px] font-thin text-black">
               <b className="font-bold">{liveReaders}</b> <b>LIVE READERS</b>
             </h1>
           </div>
           {/* Main Section Content */}
-          <div className="flex h-full w-full items-end justify-center mt-2">
+          <div className="mt-2 flex h-full w-full items-end justify-center">
             <p className="whitespace-nowrap text-center font-palatino text-[8vw] font-bold text-black">
               DECLUTTER THE NOISE
             </p>

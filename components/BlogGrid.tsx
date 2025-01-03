@@ -1,56 +1,56 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
-import Link from '@/components/Link';
+'use client'
+import { useState, useEffect, useRef } from 'react'
+import Link from '@/components/Link'
 
 export function BlogCarousel({ posts }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [activeImageIndex, setActiveImageIndex] = useState({});
-  const buttonRefs = useRef({});
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [activeImageIndex, setActiveImageIndex] = useState({})
+  const buttonRefs = useRef({})
 
   useEffect(() => {
     // Populate buttonRefs.current for all posts
-    const refs = {};
+    const refs = {}
     posts.forEach((post) => {
       if (!refs[post.slug]) {
-        refs[post.slug] = { current: null };
+        refs[post.slug] = { current: null }
       }
-    });
-    buttonRefs.current = refs;
-  }, [posts]);
+    })
+    buttonRefs.current = refs
+  }, [posts])
 
   const handleMouseMove = (e, slug) => {
-    const button = buttonRefs.current[slug]?.current;
+    const button = buttonRefs.current[slug]?.current
     if (button) {
-      const rect = button.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      const limitedX = Math.max(Math.min(x / 10, 5), -5);
-      const limitedY = Math.max(Math.min(y / 10, 5), -5);
-      button.style.transform = `translate(${limitedX}px, ${limitedY}px)`;
+      const rect = button.getBoundingClientRect()
+      const x = e.clientX - rect.left - rect.width / 2
+      const y = e.clientY - rect.top - rect.height / 2
+      const limitedX = Math.max(Math.min(x / 10, 5), -5)
+      const limitedY = Math.max(Math.min(y / 10, 5), -5)
+      button.style.transform = `translate(${limitedX}px, ${limitedY}px)`
     }
-  };
+  }
 
   const handleMouseLeave = (slug) => {
-    const button = buttonRefs.current[slug]?.current;
+    const button = buttonRefs.current[slug]?.current
     if (button) {
-      button.style.transform = 'translate(0, 0)';
+      button.style.transform = 'translate(0, 0)'
     }
-  };
+  }
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev > 0 ? prev - 1 : 0));
-  };
+    setCurrentSlide((prev) => (prev > 0 ? prev - 1 : 0))
+  }
 
   const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev < posts.length - 3 ? prev + 1 : prev));
-  };
+    setCurrentSlide((prev) => (prev < posts.length - 3 ? prev + 1 : prev))
+  }
 
   const toggleImage = (slug) => {
     setActiveImageIndex((prev) => ({
       ...prev,
       [slug]: !prev[slug],
-    }));
-  };
+    }))
+  }
 
   return (
     <div className="relative w-full bg-white p-8">
@@ -62,14 +62,14 @@ export function BlogCarousel({ posts }) {
           }}
         >
           {posts.map((post) => {
-            const { slug, title, image, readTime, date } = post;
-            const secondImage = post.secondImage || image;
+            const { slug, title, image, readTime, date } = post
+            const secondImage = post.secondImage || image
 
             return (
               <div key={slug} className="min-w-[33%] px-2">
                 <div className="h-full overflow-hidden bg-white">
                   <div
-                    className="relative pb-[60%] bg-[#ff0000]"
+                    className="relative bg-[#ff0000] pb-[60%]"
                     onMouseMove={(e) => handleMouseMove(e, slug)}
                     onMouseLeave={() => handleMouseLeave(slug)}
                   >
@@ -100,9 +100,9 @@ export function BlogCarousel({ posts }) {
                     <button
                       ref={(el) => {
                         if (!buttonRefs.current[slug]) {
-                          buttonRefs.current[slug] = {};
+                          buttonRefs.current[slug] = {}
                         }
-                        buttonRefs.current[slug].current = el;
+                        buttonRefs.current[slug].current = el
                       }}
                       className="absolute right-4 top-4 bg-white p-1.5 transition-all duration-200"
                     >
@@ -121,7 +121,6 @@ export function BlogCarousel({ posts }) {
                         />
                       </svg>
                     </button>
-
                   </div>
                   <div className="p-4">
                     <h2 className="text-base font-bold text-gray-900">
@@ -138,7 +137,7 @@ export function BlogCarousel({ posts }) {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
@@ -175,5 +174,5 @@ export function BlogCarousel({ posts }) {
         </svg>
       </button>
     </div>
-  );
+  )
 }

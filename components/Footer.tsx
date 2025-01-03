@@ -32,7 +32,7 @@ export default function Footer() {
             <input
               type="text"
               placeholder="Type your Message"
-              className="mt-4 w-full text-black rounded-full px-[5%] py-2"
+              className="mt-4 w-full rounded-full px-[5%] py-2 text-black"
             />
           </div>
 
@@ -42,9 +42,21 @@ export default function Footer() {
             <div className="w-[30%]">
               <h3 className="mb-[10%] text-xl font-bold text-blue-500">Socials</h3>
               <ul className="space-y-2">
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">LinkedIn</Link></li>
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Pinterest</Link></li>
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Instagram</Link></li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    LinkedIn
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Pinterest
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Instagram
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -52,9 +64,21 @@ export default function Footer() {
             <div className="w-[30%]">
               <h3 className="mb-[10%] text-xl font-bold text-blue-500">Others</h3>
               <ul className="space-y-2">
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Livebuy</Link></li>
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Careers</Link></li>
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Contact us</Link></li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Livebuy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Contact us
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -62,9 +86,21 @@ export default function Footer() {
             <div className="w-[30%]">
               <h3 className="mb-[10%] text-xl font-bold text-blue-500">Main</h3>
               <ul className="space-y-2">
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Livebuy</Link></li>
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Livebuy</Link></li>
-                <li><Link href="#" className="text-blue-400 hover:text-blue-600">Livebuy</Link></li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Livebuy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Livebuy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-blue-400 hover:text-blue-600">
+                    Livebuy
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -72,11 +108,8 @@ export default function Footer() {
 
         {/* Bottom Section with 200px padding */}
         <div className="pb-[200px] text-center">
-
           {/* People illustration container */}
-          <div className="mx-auto w-[80%]">
-            {/* Add your people illustrations here */}
-          </div>
+          <div className="mx-auto w-[80%]">{/* Add your people illustrations here */}</div>
         </div>
 
         {/* Visit Button */}

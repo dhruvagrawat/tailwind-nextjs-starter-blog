@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image'; 
+import React from 'react'
+import Image from 'next/image'
 
 const BouncyButton: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const BouncyButton: React.FC = () => {
       {/* Button */}
       <button className="button-content relative flex items-center justify-center rounded-full border-[2.5px] border-black bg-white transition-transform duration-300">
         <div
-          className="flex items-center justify-center border-[2px] border-black rounded-full"
+          className="flex items-center justify-center rounded-full border-[2px] border-black"
           style={{
             width: '170px',
             height: '42px',
@@ -37,7 +37,7 @@ const BouncyButton: React.FC = () => {
         </div>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default BouncyButton;
+export default BouncyButton
